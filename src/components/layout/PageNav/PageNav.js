@@ -12,7 +12,9 @@ import styles from './PageNav.module.scss';
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
     <nav className={styles.component}>
+      <Button className={styles.link} component={NavLink} to={process.env.PUBLIC_URL + '/'} activeClassName='active'>Home</Button>
       <Button className={styles.link} component={NavLink} to={process.env.PUBLIC_URL + '/login'} activeClassName='active'>Login</Button>
+      <Button className={styles.link} component={NavLink} to={process.env.PUBLIC_URL + '/logout'} activeClassName='active'>Logout</Button>
     </nav>
   </div>
 );
