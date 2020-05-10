@@ -1,23 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import clsx from 'clsx';
+import {Announcement} from '../../features/Announcement/Announcement';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Post.module.scss';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <h2>Post</h2>
-    {children}
+const Component = ({id, name, description, phone}) => (
+  <div className={styles.root}>
+    <div className={styles.head}>
+      <h1 className={styles.title}>Details</h1>
+    </div>
+    <Announcement
+      id={id}
+      name={name}
+      description={description}
+      phone={phone}
+    />
   </div>
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
+  id: PropTypes.number,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  phone: PropTypes.number,
 };
 
 // const mapStateToProps = state => ({
