@@ -1,28 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {NavLink} from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 import clsx from 'clsx';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import { PageNav } from '../../layout/PageNav/PageNav';
-
-import styles from './Header.module.scss';
-import { Container } from '@material-ui/core';
+import styles from './PageNav.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <AppBar className = {styles.component}>
-      <Toolbar disableGutters>
-        <Container>
-          <PageNav/>
-        </Container>
-      </Toolbar>
-    </AppBar>
-    <Toolbar/>
+    <nav className={styles.component}>
+      <Button className={styles.link} component={NavLink} to={process.env.PUBLIC_URL + '/login'} activeClassName='active'>Login</Button>
+    </nav>
   </div>
 );
 
@@ -42,7 +33,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Header,
-  // Container as Header,
-  Component as HeaderComponent,
+  Component as PageNav,
+  // Container as PageNav,
+  Component as PageNavComponent,
 };
