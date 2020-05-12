@@ -12,7 +12,7 @@ import {Link} from 'react-router-dom';
 
 import styles from './Announcement.module.scss';
 
-const Component = ({id, name, description, phone}) => (
+const Component = ({id, name, description, phone, userLogged}) => (
   <div className={styles.root}>
     <Link to={`/post/${id}`} className={styles.link}>
       <Card  className={styles.item}>
@@ -30,7 +30,13 @@ const Component = ({id, name, description, phone}) => (
           </Typography>
           <div className={styles.footer}>
             <Typography>{phone}</Typography>
-            <Button to={process.env.PUBLIC_URL + `/post/${id}/edit`}> Edit </Button>
+            {
+              userLogged
+                ?
+                <Button to={process.env.PUBLIC_URL + `/post/${id}/edit`}> Edit </Button>
+                :
+                ''
+            }
           </div>
         </CardContent>
       </Card>
@@ -43,6 +49,7 @@ Component.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   phone: PropTypes.number,
+  userLogged: PropTypes.bool,
 };
 
 // const mapStateToProps = state => ({

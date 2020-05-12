@@ -18,7 +18,7 @@ const Component = ({className, children}) => (
     <AppBar className = {styles.component}>
       <Toolbar disableGutters>
         <Container>
-          <PageNav/>
+          <PageNav userLogged/>
         </Container>
       </Toolbar>
     </AppBar>
