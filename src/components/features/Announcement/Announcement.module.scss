@@ -1,17 +1,25 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
 
-.item {
-  margin-bottom: 20px;
+  .item {
+    margin-bottom: 20px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  .info {
+    font-size: 12px;
+    display: inline-block;
+    margin-right: 20px;
+  }
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-}
 
-.link {
-  text-decoration: none;
-}

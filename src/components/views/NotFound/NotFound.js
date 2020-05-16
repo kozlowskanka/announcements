@@ -5,9 +5,6 @@ import clsx from 'clsx';
 import Button from '@material-ui/core/Button';
 import {NavLink} from 'react-router-dom';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 import styles from './NotFound.module.scss';
 
 const Component = ({className, children}) => (
@@ -29,18 +26,7 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as NotFound,
-  // Container as NotFound,
   Component as NotFoundComponent,
 };

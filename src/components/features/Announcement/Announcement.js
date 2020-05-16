@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 
 // import { connect } from 'react-redux';
@@ -12,7 +12,7 @@ import {Link} from 'react-router-dom';
 
 import styles from './Announcement.module.scss';
 
-const Component = ({id, name, description, phone, userLogged}) => (
+const Component = ({id, name, description, published, updated, mail, status}) => (
   <div className={styles.root}>
     <Link to={`/post/${id}`} className={styles.link}>
       <Card  className={styles.item}>
@@ -28,15 +28,19 @@ const Component = ({id, name, description, phone, userLogged}) => (
             paragraph ="true">
             {description}
           </Typography>
+          <Typography className={styles.info}>publish date: {published}</Typography>
+          <Typography className={styles.info}>update date: {updated}</Typography>
+          <Typography className={styles.info}>e-mail: {mail}</Typography>
+          <Typography className={styles.info}>status: {status}</Typography>
           <div className={styles.footer}>
-            <Typography>{phone}</Typography>
-            {
+
+            {/* {
               userLogged
                 ?
                 <Button to={process.env.PUBLIC_URL + `/post/${id}/edit`}> Edit </Button>
                 :
                 ''
-            }
+            } */}
           </div>
         </CardContent>
       </Card>
@@ -48,7 +52,10 @@ Component.propTypes = {
   id: PropTypes.number,
   name: PropTypes.string,
   description: PropTypes.string,
-  phone: PropTypes.number,
+  published: PropTypes.number,
+  updated: PropTypes.string,
+  mail: PropTypes.string,
+  status: PropTypes.string,
   userLogged: PropTypes.bool,
 };
 
