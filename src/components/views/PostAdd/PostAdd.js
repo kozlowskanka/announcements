@@ -12,12 +12,12 @@ import styles from './PostAdd.module.scss';
 
 const Component = ({className, addPost}) => {
 
-const {post, newPost} = React.useState({
+  const [post, newPost] = React.useState({
     id: '',
     name: '',
     description: '',
-    publishDate: '',
-    updateDate: '',
+    published: '',
+    updated: '',
     mail: '',
     status: '',
   });
@@ -63,12 +63,12 @@ const {post, newPost} = React.useState({
           className={styles.input}
           label="Pubslih date"
           variant="outlined"
-          onChange={e => handleChange(e, 'publish date')}/>
+          onChange={e => handleChange(e, 'published')}/>
         <TextField
           className={styles.input}
           label="Update date"
           variant="outlined"
-          onChange={e => handleChange(e, 'update date')}/>
+          onChange={e => handleChange(e, 'updated')}/>
         <TextField
           className={styles.input}
           label="Mail"

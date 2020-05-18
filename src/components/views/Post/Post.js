@@ -10,7 +10,7 @@ import styles from './Post.module.scss';
 
 const Component = ({posts, match, userLogged}) => {
 
-  const post = posts[match.params.id];
+  const post = posts.data[match.params.id];
 
   return (
 

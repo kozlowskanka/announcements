@@ -9,7 +9,7 @@ import styles from './Posts.module.scss';
 
 const Component = ({posts}) => (
   <div className={styles.root}>
-    {posts.map(post =>(
+    {posts.data.map(post =>(
       <Announcement
         key={post.id}
         name={post.name}
