@@ -4,16 +4,14 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
 import { connect } from 'react-redux';
-import { addPost } from '../../../redux/postsRedux.js';
+import { addPost, getAll } from '../../../redux/postsRedux.js';
 
 import styles from './PostAdd.module.scss';
 
 const Component = ({className, addPost}) => {
 
   const [post, newPost] = React.useState({
-    id: '',
     name: '',
     description: '',
     published: '',
@@ -43,11 +41,6 @@ const Component = ({className, addPost}) => {
         noValidate
         autoComplete="off"
         onSubmit={e => handleSubmit(e)}>
-        <TextField
-          className={styles.input}
-          label="id"
-          variant="outlined"
-          onChange={e => handleChange(e, 'id')}/>
         <TextField
           className={styles.input}
           label="Name"
@@ -82,7 +75,6 @@ const Component = ({className, addPost}) => {
         <Button
           type="submit"
           className={styles.link}
-          to={process.env.PUBLIC_URL + '/post/:id'}
         >Submit
         </Button>
       </form>
@@ -97,7 +89,7 @@ Component.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  posts: state.posts,
+  posts: getAll(state),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -107,7 +99,6 @@ const mapDispatchToProps = dispatch => ({
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  // Component as PostAdd,
   Container as PostAdd,
   Component as PostAddComponent,
 };

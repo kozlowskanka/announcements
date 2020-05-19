@@ -32,7 +32,7 @@ const Component = ({posts, match, className, editPost}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    editPost(post);
+    editPost({...editedPost, ...post});
   };
 
   return (
@@ -78,7 +78,6 @@ const Component = ({posts, match, className, editPost}) => {
         <Button
           type="submit"
           className={styles.link}
-          to={process.env.PUBLIC_URL + '/post/:id'}
         >Submit
         </Button>
       </form>
@@ -107,10 +106,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-// const Container = connect(mapStateToProps)(Component);
 
 export {
-  // Component as PostEdit,
   Container as PostEdit,
   Component as PostEditComponent,
 };

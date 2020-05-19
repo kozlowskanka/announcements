@@ -65,6 +65,7 @@ export const reducer = (statePart = [], action = {}) => {
       };
     }
     case EDIT_POST: {
+      console.log('EDIT POST', action);
       return {
         ...statePart,
         data: statePart.data.map(post =>

@@ -4,52 +4,38 @@ import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-// import Button from '@material-ui/core/Button';
-import {Link} from 'react-router-dom';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Announcement.module.scss';
 
-const Component = ({id, name, description, published, updated, mail, status}) => (
+const Component = ({name, description, published, updated, mail, status}) => (
   <div className={styles.root}>
-    <Link to={`/post/${id}`} className={styles.link}>
-      <Card  className={styles.item}>
-        <CardContent>
-          <Typography
-            variant="h4"
-            color="primary"
-            paragraph ="true"
-          >
-            {name}
-          </Typography>
-          <Typography
-            paragraph ="true">
-            {description}
-          </Typography>
-          <Typography className={styles.info}>publish date: {published}</Typography>
-          <Typography className={styles.info}>update date: {updated}</Typography>
-          <Typography className={styles.info}>e-mail: {mail}</Typography>
-          <Typography className={styles.info}>status: {status}</Typography>
-          <div className={styles.footer}>
 
-            {/* {
-              userLogged
-                ?
-                <Button to={process.env.PUBLIC_URL + `/post/${id}/edit`}> Edit </Button>
-                :
-                ''
-            } */}
-          </div>
-        </CardContent>
-      </Card>
-    </Link>
+    <Card  className={styles.item}>
+      <CardContent>
+        <Typography
+          variant="h4"
+          color="primary"
+          paragraph ="true"
+        >
+          {name}
+        </Typography>
+        <Typography
+          paragraph ="true">
+          {description}
+        </Typography>
+        <Typography className={styles.info}>publish date: {published}</Typography>
+        <Typography className={styles.info}>update date: {updated}</Typography>
+        <Typography className={styles.info}>e-mail: {mail}</Typography>
+        <Typography className={styles.info}>status: {status}</Typography>
+        <div className={styles.footer}>
+        </div>
+      </CardContent>
+    </Card>
+
   </div>
 );
 
 Component.propTypes = {
-  id: PropTypes.number,
   name: PropTypes.string,
   description: PropTypes.string,
   published: PropTypes.number,

@@ -3,23 +3,26 @@ import PropTypes from 'prop-types';
 
 import {Announcement} from '../Announcement/Announcement';
 import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import {Link} from 'react-router-dom';
 
 import styles from './Posts.module.scss';
 
 const Component = ({posts}) => (
   <div className={styles.root}>
     {posts.data.map(post =>(
-      <Announcement
-        key={post.id}
-        name={post.name}
-        description={post.description}
-        published={post.published}
-        updated={post.updated}
-        mail={post.mail}
-        status={post.status}
-        id={post.id}
-      />
+      // eslint-disable-next-line react/jsx-key
+      <Link to={`/post/${post.id}`} className={styles.link}>
+        <Announcement
+          key={post.id}
+          name={post.name}
+          description={post.description}
+          published={post.published}
+          updated={post.updated}
+          mail={post.mail}
+          status={post.status}
+          id={post.id}
+        />
+      </Link>
     ))}
   </div>
 );
@@ -32,15 +35,9 @@ const mapStateToProps = state => ({
   posts: state.posts,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  // Component as Posts,
   Container as Posts,
   Component as PostsComponent,
 };
