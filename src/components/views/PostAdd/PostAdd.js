@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
-import { addPost, getAll } from '../../../redux/postsRedux.js';
+import { addPost, getAllPublished } from '../../../redux/postsRedux.js';
 
 import styles from './PostAdd.module.scss';
 
@@ -89,7 +89,7 @@ Component.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  posts: getAll(state),
+  posts: getAllPublished(state),
 });
 
 const mapDispatchToProps = dispatch => ({
