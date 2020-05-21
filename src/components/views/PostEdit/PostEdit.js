@@ -14,8 +14,9 @@ const Component = ({posts, match, className, editPost}) => {
 
   const editedPost = posts.data[match.params.id];
 
-  console.log('posts data', posts.data);
-  console.log('editedPost', editedPost);
+  console.log('edited', editedPost);
+  // console.log('posts data', posts.data);
+  // console.log('editedPost', editedPost);
 
   const [post, updatePost] = React.useState({
     name: '',
@@ -88,7 +89,7 @@ const Component = ({posts, match, className, editPost}) => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  posts: PropTypes.array,
+  posts: PropTypes.object,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string,

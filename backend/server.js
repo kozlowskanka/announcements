@@ -27,7 +27,12 @@ app.use('*', (req, res) => {
 });
 
 /* MONGOOSE */
-mongoose.connect('mongodb://localhost:27017/bulletinBoard', { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect('mongodb://localhost:27017/bulletinBoard', { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect('mongodb+srv://kozlowskanka:<password>@cluster0-ucl9x.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connect('mongodb+srv://' + 'kozlowskanka' + ':' + 'NewWaveMango' + '@cluster0-ucl9x.mongodb.net/BulletinBoard?retryWrites=true&w=majority',
+  { useNewUrlParser: true, useUnifiedTopology: true });
+
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('Successfully connected to the database');
