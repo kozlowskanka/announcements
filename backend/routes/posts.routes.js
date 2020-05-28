@@ -7,7 +7,20 @@ router.get('/posts', async (req, res) => {
   try {
     const result = await Post
       .find({status: 'published'});
-      // .select('author created title photo')
+    if(!result) res.status(404).json({ post: 'Not found' });
+    else res.json(result);
+  }
+  catch(err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/posts', async (req, res) => {
+  try {
+    console.log('saving:', req.body);
+    const post = new Post({...req.body, status: 'published' });
+    const result = await post.save();
+
     if(!result) res.status(404).json({ post: 'Not found' });
     else res.json(result);
   }

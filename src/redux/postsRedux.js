@@ -30,10 +30,27 @@ export const fetchPublished = () => {
       .get('http://localhost:8000/api/posts')
       .then(res => {
         dispatch(fetchSuccess(res.data));
-        console.log('get response');
+        console.log('get responseeee');
       })
       .catch(err => {
         dispatch(fetchError(err.message || true));
+      });
+  };
+};
+
+export const savePost = (post) => {
+  return (dispatch, getState) => {
+    // dispatch(fetchStarted());
+
+    Axios
+      .post('http://localhost:8000/api/posts', post)
+      .then(res => {
+        // dispatch(fetchSuccess(res.data));
+        console.log(':: get response');
+      })
+      .catch(err => {
+        // dispatch(fetchError(err.message || true));
+        console.log(':: error');
       });
   };
 };

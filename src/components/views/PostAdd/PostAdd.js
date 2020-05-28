@@ -5,11 +5,11 @@ import clsx from 'clsx';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
-import { addPost, getAllPublished } from '../../../redux/postsRedux.js';
+import { addPost, getAllPublished, savePost } from '../../../redux/postsRedux.js';
 
 import styles from './PostAdd.module.scss';
 
-const Component = ({className, addPost}) => {
+const Component = ({className, addPost, savePost}) => {
 
   const [post, newPost] = React.useState({
     name: '',
@@ -29,7 +29,9 @@ const Component = ({className, addPost}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPost(post);
+    // addPost(post);
+    console.log('about to saveee');
+    savePost(post);
   };
 
   return (
@@ -86,6 +88,7 @@ Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   addPost: PropTypes.func,
+  savePost: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -94,6 +97,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addPost: post => dispatch(addPost(post)),
+  savePost: post => dispatch(savePost(post)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
